@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss"; 
+
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body{
+    font-family: "Lobster Two", sans-serif;
+     font-family: "Lobster", sans-serif;
+     font-family: "Montserrat", sans-serif; 
+}
+

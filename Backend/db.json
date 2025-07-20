@@ -1,0 +1,21 @@
+{
+  "products": [
+  {
+    "id": "ejnfjoewfowe",
+    "title": "Super Clay",
+    "price": "50",
+    "description": "This clay is super",
+    "category": "Products",
+    "image": "http://example.com"
+  }
+],
+  "users": [
+  {
+    "id": "jdhohsdiojsadiojs",
+    "username": "Alok Chandra",
+    "email": "alok123@.com",
+    "password": "123456"
+  }
+],
+"Cart":[]
+}
