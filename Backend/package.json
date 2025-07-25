@@ -1,4 +1,10 @@
 {
+  "name": "hackathon-backend",
+  "version": "1.0.0",
+  "description": "json-server backend for hackathon project",
+  "scripts": {
+    "start": "json-server --watch db.json --port $PORT"
+  },
   "dependencies": {
     "json-server": "^1.0.0-beta.3"
   }
