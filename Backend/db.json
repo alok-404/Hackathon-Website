@@ -1,21 +1,136 @@
 {
   "products": [
-  {
-    "id": "ejnfjoewfowe",
-    "title": "Super Clay",
-    "price": "50",
-    "description": "This clay is super",
-    "category": "Products",
-    "image": "http://example.com"
-  }
-],
+    {
+      "id": "ejnfjoewfowe",
+      "title": "Bookmark",
+      "price": "85",
+      "description": "This is Beautiful Bookmark that helps you to Remind last reading page.",
+      "category": "Painting",
+      "imageUrl": "https://i.pinimg.com/1200x/72/b9/ad/72b9adcdedefc895ae1bd175b29bf299.jpg"
+    },
+    {
+      "id": "ejnfjoewfowedgadg",
+      "title": "Colorful Clay Turtle",
+      "price": "130",
+      "description": "A Beautiful Clay Turtle for you Bedroom.",
+      "category": "Craft",
+      "imageUrl": "https://i.pinimg.com/1200x/9d/68/b5/9d68b564df385a93f4a6b68f6d68849a.jpg",
+      "imageFile": {}
+    },
+    {
+      "id": "HGb6uOVOWx5TIzLvy7Y1W",
+      "title": "Acrylic Landscape Painting",
+      "price": "359",
+      "description": "A hand-painted landscape piece made with acrylic on canvas.",
+      "category": "Painting",
+      "imageUrl": "https://i.pinimg.com/736x/8b/b4/52/8bb4528f2c7220ebde42b345c81a3278.jpg",
+      "imageFile": {}
+    },
+    {
+      "id": "jpBL5kDwAwpZamysFWY83",
+      "title": "DIY Photo Frame Kit",
+      "price": "120",
+      "description": "Create your own stylish photo frame with this easy DIY kit.",
+      "category": "DIY",
+      "imageUrl": "https://i.pinimg.com/1200x/6b/60/62/6b6062d5071aef1324655e034491d2e4.jpg"
+    },
+    {
+      "id": "rxRDXNy5fXuBvzsYqoqLL",
+      "title": "DIY Beaded Bracelet",
+      "price": "56",
+      "description": "Fun DIY bracelet making kit with colorful beads and string.",
+      "category": "DIY",
+      "imageUrl": "https://i.pinimg.com/1200x/a1/4b/92/a14b926389f132559b30fe27b1f325e9.jpg"
+    },
+    {
+      "id": "THz_lyL68nGiI34uYqGlI",
+      "title": "Watercolor Flower Painting",
+      "price": "290",
+      "description": "Elegant floral painting using professional watercolor techniques.",
+      "category": "Painting",
+      "imageUrl": "https://i.pinimg.com/736x/7c/23/84/7c2384032ec2614f15232826f7068f08.jpg"
+    },
+    {
+      "id": "H3b2f8iYjanO11-p67JtK",
+      "title": "Mini Canvas Art Pack",
+      "price": "195",
+      "description": "A pack of 4 small canvas boards ready for painting fun.",
+      "category": "Craft",
+      "imageUrl": "https://i.pinimg.com/1200x/eb/e4/d2/ebe4d29807eb82165bb20f4b3cc7f0c1.jpg"
+    },
+    {
+      "id": "nGEJpfoBfM7Sc8H627UE4",
+      "title": "DIY Wall Hanging",
+      "price": "130",
+      "description": "A boho-style wall hanging made using rope and wood.",
+      "category": "DIY",
+      "imageUrl": "https://i.pinimg.com/1200x/e9/f3/2a/e9f32a776fe67918dc1be30abe44c699.jpg",
+      "imageFile": {}
+    },
+    {
+      "id": "MycTTMFg907ErKUjc1Oup",
+      "title": "Mandala Art Print",
+      "price": "890",
+      "description": "Digital mandala design printed on high-quality Boardr.",
+      "category": "Painting",
+      "imageUrl": "https://i.pinimg.com/736x/e0/48/57/e048579338821bd0b1b6a988c9bcc26a.jpg"
+    },
+    {
+      "id": "X-QojG4_rsDbbX7BUng-S",
+      "title": "Painted Clay Pots (Set of 3)",
+      "price": "250",
+      "description": "Hand-painted terracotta pots for succulents or herbs.",
+      "category": "Craft",
+      "imageUrl": "https://i.pinimg.com/736x/44/70/f5/4470f5cb265c2ec91b5432c81cb2dfe7.jpg"
+    },
+    {
+      "id": "70oYNYS_INFmkDPRbRdtS",
+      "title": "Abstract Canvas Painting",
+      "price": "600",
+      "description": "Bold abstract art piece made with vibrant colors and texture.",
+      "category": "Painting",
+      "imageUrl": "https://i.pinimg.com/736x/df/b1/15/dfb11562015716b63e7f3daa49254fdc.jpg"
+    }
+  ],
   "users": [
-  {
-    "id": "jdhohsdiojsadiojs",
-    "username": "Alok Chandra",
-    "email": "alok123@.com",
-    "password": "123456"
-  }
-],
-"Cart":[]
+    {
+      "id": "jJld3g-VPtABYI7yPAwZT",
+      "firstName": "Saloni",
+      "lastName": "Bisht",
+      "mobile": "789456123",
+      "email": "saloniadmin123@web.com",
+      "username": "bisht_saloni_",
+      "password": "saloniadmin1234",
+      "isAdmin": true,
+      "carts": [],
+      "profileImage": "https://i.pinimg.com/736x/d5/88/8a/d5888a9b2fa56931df63cbe55f839750.jpg",
+      "cart": []
+    },
+    {
+      "id": "mjZK2TW7rK8kg2vcgAPOe",
+      "firstName": "Alok",
+      "lastName": "Chandra",
+      "mobile": "8218595943",
+      "email": "alokchandraadmin@web.com",
+      "username": "alokchandraadmin",
+      "password": "alokchandraadmin1234",
+      "isAdmin": true,
+      "carts": [],
+      "profileImage": "https://i.pinimg.com/1200x/d3/b5/37/d3b5370db08432c73b7df53bfef7102d.jpg"
+    },
+    {
+      "id": "TQ4c5COOp9UdJv-d_wd1j",
+      "firstName": "sheryians",
+      "lastName": "Coding school",
+      "mobile": "5646545",
+      "email": "sheriiadmin123@web.com",
+      "username": "sheryians_coding",
+      "password": "sheriadmin123",
+      "isAdmin": true,
+      "carts": [],
+      "profileImageUrl": "https://imgs.search.brave.com/E_VQPJdtw-c-I4ks-86mOJxvIBHXEq2PyPSshFg0FKU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZGlzY29yZGFwcC5j/b20vZGlzY292ZXJ5/LXNwbGFzaGVzLzEw/MTM4NTUxNjY5NjI4/NjQxMzgvOGY0YzJm/NWQzZGY2OGFhZjZk/NDJhYjBmNDk0NjA0/NzcuanBnP3NpemU9/MjA0OA",
+      "profileImage": "https://imgs.search.brave.com/E_VQPJdtw-c-I4ks-86mOJxvIBHXEq2PyPSshFg0FKU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZGlzY29yZGFwcC5j/b20vZGlzY292ZXJ5/LXNwbGFzaGVzLzEw/MTM4NTUxNjY5NjI4/NjQxMzgvOGY0YzJm/NWQzZGY2OGFhZjZk/NDJhYjBmNDk0NjA0/NzcuanBnP3NpemU9/MjA0OA"
+    }
+  ],
+  "carts": []
 }

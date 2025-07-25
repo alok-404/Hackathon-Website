@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
+import { useNavigate } from "react-router-dom";
 
 const Shopmenu = ({ onNavigate }) => {
-  const gsapRef = useRef();
+  const navigate = useNavigate();
 
+  const gsapRef = useRef();
 
   useEffect(() => {
     gsap.from(gsapRef.current, {
@@ -12,31 +14,31 @@ const Shopmenu = ({ onNavigate }) => {
     });
   }, []);
 
-const underlineRef = useRef();
-const animated = useRef(false);
+  const underlineRefs = useRef([]);
+  const animatedRefs = useRef([]);
 
-const MouseEnter = () => {
-   if (!animated.current) {
-    animated.current = true;
+  useEffect(() => {
+    underlineRefs.current = document.querySelectorAll(".hover-underline");
+    animatedRefs.current = Array.from(underlineRefs.current).map(() => false);
+  }, []);
+
+  const handleMouseEnter = (index) => {
+    gsap.killTweensOf(underlineRefs.current[index]); // 🛑 cancel previous animations if any
     gsap.fromTo(
-      underlineRef.current,
-      { width: "0%" , opacity:1 },
-      { width: "100%",opacity:"0", duration: 1, ease: "power2.out" }
+      underlineRefs.current[index],
+      { width: "0%", opacity: 1 },
+      { width: "100%", opacity: 0, duration: 1, ease: "power2.out" }
     );
-  }
-};
+  };
 
-const MouseLeave = () => {
-  
-  animated.current = true;
-  gsap.fromTo(
-      underlineRef.current,
-      { width: "100%" },
-      { width: "",opacity:0, duration: 1, ease: "power2.out" }
+  const handleMouseLeave = (index) => {
+    gsap.killTweensOf(underlineRefs.current[index]); // 🛑 cancel previous animations if any
+    gsap.fromTo(
+      underlineRefs.current[index],
+      { width: "100%", opacity: 1 },
+      { width: "0%", opacity: 0, duration: 1, ease: "power2.out" }
     );
-};
-
-
+  };
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -59,61 +61,69 @@ const MouseLeave = () => {
         // 🌟 Mobile Content
         <div className="flex flex-col gap-4">
           <div
-            onClick={() => onNavigate("/shop")}
+            // onClick={() => onNavigate("/shop")}
             className="text-lg font-bold cursor-pointer"
           >
             Shop
           </div>
 
-          <h3 className="text-left">Original Paintings</h3>
-          <h3 className="text-left">Prints</h3>
-          <h3 className="text-left">Shop All</h3>
+          {/* <h3 className="text-left">Original Paintings</h3> */}
+          <h3
+            onClick={() => onNavigate("/artistcoursesmore")}
+            className="text-left"
+          >
+            Workshop
+          </h3>
+          <h3 onClick={() => onNavigate("/shop")} className="text-left">
+            Shop All
+          </h3>
         </div>
       ) : (
         // 💻 Desktop Content
-        <div className="grid grid-cols-2  h-full border-1  overflow-hidden ">
+        <div className="grid grid-cols-2 h-full border-1  overflow-hidden ">
           <div className="bg-white uppercase flex flex-row ">
             <div className="bg-white py-5 w-1/2">
-
-
-            <div
-  onMouseEnter={MouseEnter}
-  onMouseLeave={MouseLeave}
-  className="mx-3 px-3 py-1 w-fit cursor-pointer relative"
-  style={{ fontFamily: '"Lobster Two", sans-serif' }}
->
-  <h1 className="leading-tight md:mt-8 text-[#23444d]">
-    Original <br />
-    Paintings
-  </h1>
-  <span
-    ref={underlineRef}
-    className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#bb4714]"
-  ></span>
-</div>
-
-
-
+              <div
+                onClick={() => navigate("/artistcoursesmore")}
+                className="mx-3 px-3 py-1 w-fit cursor-pointer relative"
+                style={{ fontFamily: '"Lobster Two", sans-serif' }}
+              >
+                <div
+                  onClick={() => navigate("/artistcoursesmore")}
+                  onMouseEnter={() => handleMouseEnter(0)}
+                  onMouseLeave={() => handleMouseLeave(0)}
+                  className="relative"
+                >
+                  <h1 className="leading-tight md:mt-8 text-[#23444d] pointer-events-none">
+                    Workshop <br />
+                    Space
+                  </h1>
+                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#23444d] hover-underline"></span>
+                </div>
+              </div>
             </div>
 
-            
+            <div className=" flex flex-col justify-start  w-1/2 bg-white"> 
+              <div className="w-full md:my-10 md:border-l-1 md:border-[#23444d] md:h-full  ">
+                <br />
 
-            <div className=" flex flex-col justify-start  py-5 w-1/2 bg-white">
-              <div className="w-full md:my-5 md:border-l-1 md:border-[#23444d] md:h-full ">
-                <h1
-                className=" hover:border-b-2 mx-3 w-24 text-center px-3 py-1 "
-                style={{ fontFamily: '"Lobster Two", sans-serif' }}
-              >
-                Prints
-              </h1>
-              <br />
-
-              <h1
-                className="mx-3 w-30  py-1 hover:border-b-2 px-3"
-                style={{ fontFamily: '"Lobster Two", sans-serif' }}
-              >
-                Shop All
-              </h1>
+                <div
+                  onClick={() => navigate("/shop")}
+                   onMouseEnter={() => handleMouseEnter(1)}
+                    onMouseLeave={() => handleMouseLeave(1)}
+                  className="mx-3 w-30 py-1 px-3 relative cursor-pointer"
+                  style={{ fontFamily: '"Lobster Two", sans-serif' }}
+                >
+                  <div
+                   
+                    className="relative"
+                  >
+                    <h1 className="text-[#23444d] pointer-events-none">
+                      Shop All
+                    </h1>
+                    <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#23444d] hover-underline"></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -122,8 +132,8 @@ const MouseLeave = () => {
             <img
               ref={gsapRef}
               className="object-fit h-full w-full"
-              src="https://images.unsplash.com/photo-1603645116651-37b9f94cdf24?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
+              src="https://images.unsplash.com/photo-1509744645300-a2098b11871a?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Image"
             />
           </div>
         </div>

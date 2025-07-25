@@ -70,7 +70,7 @@ const Countries = ({ selected, onChange }) => {
           {/* Mobile Slide Dropdown */}
           <div className="fixed inset-0 bg-black bg-opacity-30 z-40 md:hidden" onClick={() => setOpen(false)}></div>
 
-          <div className={`fixed top-0 right-0 h-full w-full bg-white z-50 transform transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+          <div className={`fixed top-0 pt-20 right-0 h-full w-full bg-[#e6e5e3] z-50 transform transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
             <div className="flex items-center justify-between px-4 py-4 border-b">
               <button onClick={() => setOpen(false)} className="text-sm">Back</button>
               <h2 className="text-lg font-bold text-center">Select Country</h2>

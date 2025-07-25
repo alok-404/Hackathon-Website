@@ -21,7 +21,7 @@ const useHeroAnimation = (ref) => {
       tl.fromTo(
         ref.current.querySelector(".hero-bg"),
         { scale: 1.1, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.2 }
+        { scale: 1, opacity: 1, duration: 1 }
       )
         .fromTo(
           ref.current.querySelector(".hero-heading"),

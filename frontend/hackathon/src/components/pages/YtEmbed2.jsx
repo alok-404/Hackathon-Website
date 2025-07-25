@@ -6,10 +6,10 @@ const YtEmbed2 = () => {
   const videoId = "tMz2doQt1TY";
 
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col  items-center ">
       <div>
         <h1
-          className="py-3  text-[2.4rem] tracking-wider font-bold md:text-[2.8rem] text-[#23434c] md:tracking-tight"
+          className="py-3 mt-15 text-[2.4rem] tracking-wider font-bold md:text-[2.8rem] text-[#23434c] md:tracking-tight"
           style={{ fontFamily: '"Lobster Two", sans-serif' }}
         >
           Get inspired
@@ -17,11 +17,10 @@ const YtEmbed2 = () => {
       </div>
 
       <h5 className="text-[#23434c] normal-case text-center md:text-1xl md:w-[60rem]">
-        Get inspired with tips and tricks for your creative business and explore
-        the realities of being an entrepreneur on YouTube.
+       "Get inspired with tips and tricks for your creative journey, and explore the real behind-the-scenes of building something on YouTube."
       </h5>
 
-      <div className=" items-start mt-10 flex md:mt-10 ">
+      <div className=" items-start mt-10 flex md:mt-10 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition duration-300 hover:translate-y-1">
         <a
           href="https://www.youtube.com/@mystrispot/videos"
           target="_blank"
@@ -32,7 +31,9 @@ const YtEmbed2 = () => {
         </a>
       </div>
 
-      <div className="w-full my-10  aspect-video mx-auto px-5  overflow-hidden md:h-[80vh] md:p-15">
+
+
+      <div className="w-full my-10  aspect-video mx-auto px-5  overflow-hidden md:h-screen md:p-15">
         {!play ? (
           <div
             onClick={() => setPlay(true)}
@@ -40,7 +41,7 @@ const YtEmbed2 = () => {
           >
             {/*  Thumbnail for yt */}
             <img
-              src={`/images/yt_thumbnail.jpg`}
+              src={`/images/Blue Yellow Minimalist Simple A Day In My Life  Thumbnail Youtube.png`}
               alt="Video thumbnail"
               className="w-full h-full object-cover"
             />

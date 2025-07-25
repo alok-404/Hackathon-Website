@@ -1,102 +1,103 @@
-import React from 'react'
+import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import ProductModal from "./ProductModal"; // ✅ Make sure this is correctly imported
+import { Link } from "react-router-dom";
+import YtEmbed4 from "./YtEmbed4 ";
+import Footer from "./Footer";
+import useHeroAnimation from "./useHeroAnimation";
 
 const Shop = () => {
 
-  const shopItems = [
-  {
-    label: "Oil Painting",
-    image: "https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    label: "Canvas Art",
-    image: "https://i.pinimg.com/736x/12/61/32/12613245717044a357ac7ad30c1c8444.jpg",
-  },
-  {
-    label: "Wall Frame",
-    image: "https://i.pinimg.com/736x/fb/b4/81/fbb4816178fcfde5ae1c9472a183dbb2.jpg",
-  },
-  {
-    label: "Prints",
-    image: "https://i.pinimg.com/736x/c1/18/72/c118724dcce23f78974551ffeb9a873f.jpg",
-  },
-  {
-    label: "Sketch Art",
-    image: "https://i.pinimg.com/736x/13/92/e6/1392e61577553757ba940ca4fef0c687.jpg",
-  },
-  {
-    label: "Custom Order",
-    image: "https://i.pinimg.com/736x/0c/88/6b/0c886b936ff44ac5df7e90c047b8f923.jpg",
-  },
-   {
-    label: "Key Chain",
-    image: "https://i.pinimg.com/1200x/0b/fe/a2/0bfea2e2133a90e6dcc9dffb6f56ae67.jpg",
-  },
-  
-];
-  return (
-   <div className="h-full pt-40 overflow-x-hidden bg-[#e6e5e3] uppercase">
+  const heroRef = useRef(null);
+    useHeroAnimation(heroRef); // Custom animation hook
 
-      
-      {/* 🔶 Hero Section with background image (80% of screen) */}
+
+  const products = useSelector((state) => state.productsReducer.products);
+
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleQuickView = (product) => {
+    setSelectedProduct(product);
+  };
+
+  // ✅ Renders each product card
+  const renderProducts = products.map((product) => (
+    <div
+      key={product.id}
+      className=" group relative border rounded p-3 bg-white overflow-hidden shadow transition-all duration-300"
+    >
+      <Link to={`/product/${product.id}`}>
+        <img
+          src={product.imageUrl || product.image}
+          alt={product.title}
+          className="w-full h-40 object-cover rounded transition-transform duration-300 group-hover:scale-95 md:h-90"
+        />
+      </Link>
+      <h1>{product.category}</h1>
+
+      {/* 🟠 Quick View Button */}
+      <button
+        onClick={() => handleQuickView(product)}
+        className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 bg-zinc-200 text-center py-2 text-sm font-semibold"
+      >
+        QUICK VIEW
+      </button>
+
+      <h3 className="text-lg font-semibold mt-3">{product.title}</h3>
+      <p className="text-sm text-gray-600">₹{product.price}</p>
+    </div>
+  ));
+
+  return (
+    <div
+    ref={heroRef}
+    className="h-full pt-40 overflow-x-hidden bg-[#e6e5e3] uppercase">
+      {/* 🔶 Hero Section */}
       <div
-        className="h-[70vh] p-10 bg-[#e6e5e3]  bg-center md:h-[50vh]"
+        className="hero-bg h-[70vh] p-10 bg-[#e6e5e3] bg-center md:h-[50vh]"
         style={{
           backgroundImage: `url("https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=1019&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
-           backgroundPosition: 'top',
-
+          backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
       >
-        <div className="h-full flex-col flex items-center justify-center text-white text-5xl font-bold">
-         <h1>what you want?</h1>
-        <div className="flex flex-row gap-5 mt-5">
-           <button className="bg-trasnparent text-3xl px-3 py-2.5 border-black border-1 font-thin">EXPLORE</button>
-                   <button className="bg-trasnparent text-3xl px-3 py-2.5 border-black border-1 font-thin">FOR ARTIST</button>
-
-        </div>
+        <div className="hero-heading h-full flex-col flex items-center justify-center text-white text-5xl font-bold">
+          <h1>what DO you want?</h1>
         </div>
       </div>
 
-      {/* 🔽 Stacked Sections Below */}
-  
-
-  
-  <div className="uppercase bg-[#e6e5e3] grid grid-cols-2 gap-4 p-5 md:grid-cols-3 md:pt-20">
-  {shopItems.map((item, index) => (
-    <div className=''>
-          <div
-      key={index}
-      className="bg-[#e6e5e3] rounded-md aspect-square overflow-hidden flex flex-col items-center md:rounded-none"
-    >
-      <img
-        src={item.image}
-        alt={item.label}
-        className="w-full h-full  object-cover rounded-md md:rounded-none"
-      />   
-    </div>
-      <p className="text-base tracking-widest text-[#23444d] mt-2 " style={{ fontFamily: '"Lobster", sans-serif'}}>{item.label}</p>
-
-    </div>
-  ))}
-</div>
-
-{/* </div> */}
-
-
-
-
-        {/* Section 2 Thoda Bahut Details */}
-
-      <div className="h-screen bg-red-900 flex flex-col items-center justify-center">
-        
-          aection 2
+      {/* 🔽 Product Grid */}
+      <div className="hero-btn px-4 py-10">
+        {products.length > 0 ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {renderProducts}
+          </div>
+        ) : (
+          <div className="text-center text-gray-500">Loading...</div>
+        )}
       </div>
-      <div className="h-screen bg-amber-300 flex items-center justify-center">Section 3</div>
 
-      
-      
+      {/* 🪟 Product Modal */}
+      {selectedProduct && (
+        <ProductModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
+
+      {/* Youtube Sections */}
+      <div className=" md:h-screen bg-[#e6e5e3] px-5  items-center justify-center">
+        <YtEmbed4 />
+      </div>
+
+      {/* FOoter */}
+
+      <div className=" bg-[#e6e5e3] flex items-center justify-center">
+        {" "}
+        <Footer />
+      </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default Shop
+export default Shop;

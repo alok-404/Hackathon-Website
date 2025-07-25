@@ -1,11 +1,14 @@
 // import React, { useEffect } from 'react'
 // import { gsap } from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import YtEmbed1 from "./YtEmbed1";
 // import gsap from "gsap";
 // import { useLayoutEffect } from "react";
 import useHeroAnimation from "./useHeroAnimation";
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
+import { toast } from "react-toastify";
+import ArtistCourses from "./ArtistCourses";
 
 const Home = () => {
 
@@ -19,17 +22,26 @@ const heroRef = useRef(null);
   useHeroAnimation(heroRef); // Custom animation hook
 
 
+const [email, setEmail] = useState("");
+
+  const handleSubscribe = () => {
+    if (email.trim() === "") {
+      toast.error("Please enter a valid email.");
+      return;
+    }
+    toast.success("Subscribed Successfully!");
+    setEmail("");
+  };
 
 
-
-
+// -mt-[4rem] md:-mt-[7rem] 
 
 
   return (
       
     <div 
     ref={heroRef}
-    className="h-full  overflow-x-hidden uppercase">
+    className="h-full overflow-x-hidden uppercase">
 
 
 
@@ -37,8 +49,13 @@ const heroRef = useRef(null);
       <div
         className="hero-bg h-[90vh]  bg-cover bg-center"
         style= { {
-          backgroundImage: `url("https://images.unsplash.com/photo-1705603476680-1d87835e8850?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
-          backgroundPosition: "top",
+          backgroundImage: `url("/images/bg2.jpg")`,
+
+          backgroundPosition: "bottom",
+           backgroundSize: "cover",
+      //     transform: "rotate(90deg)",
+      //        top: "-50%",
+      // left: "-50%",
         }}
       >
         <div 
@@ -46,7 +63,7 @@ const heroRef = useRef(null);
           <h1
       
          
-            className="hero-heading  text-[#bb4714] "
+            className="hero-heading  text-[#F8B259] "
             style={{ fontFamily: '"Lobster Two", sans-serif' }}
           >
             mystrispot
@@ -60,10 +77,10 @@ const heroRef = useRef(null);
                <span className="z-10 relative">Shop now</span>
             </button>
 
-            <button
+            <button 
             onClick={() => navigate("/Forartist")}
             className=" relative group cursor-pointer bg-transparent uppercase text-[#f1f5ff] text-xs px-6 py-4 border-[#c9d0e0] border-1 font-medium md:text-[#c9d0e0] hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition duration-300 hover:translate-y-1">
-            <span className="z-10 relative">Shop now</span>
+            <span className="z-10 relative">For Artist</span>
             </button>
           </div>
         </div>
@@ -79,10 +96,10 @@ const heroRef = useRef(null);
        className=" uppercase bg-[#e6e5e3]flex flex-col gap-1 items-center py-2 px-5">
         <h1
 
-          className="hero-heading text-5xl mt-12 text-center text-[#23444d] font-normal md:mt-18"
+          className="hero-heading text-5xl mt-12 text-center text-[#23444d] font-normal md:mt-22"
           style={{ fontFamily: '"Lobster Two", sans-serif' }}
         >
-          DIY/PAINTING
+          Featured work
         </h1>
         <br />
 
@@ -92,7 +109,7 @@ const heroRef = useRef(null);
             <div className="w-[45%] h-full   ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/736x/ba/ac/42/baac42a1cf60188cf2e45feb03df3769.jpg
+                src="https://i.pinimg.com/736x/fc/df/04/fcdf046170532aeea700ce368c0784fc.jpg
         "
                 alt=""
               />
@@ -100,14 +117,14 @@ const heroRef = useRef(null);
             <div className="w-[30%] h-full  ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/736x/5e/c3/46/5ec346363167b21875d3d3a848255754.jpg"
+                src="https://i.pinimg.com/1200x/6b/3b/9e/6b3b9ea470f065399aec718e911d2297.jpg"
                 alt=""
               />
             </div>
             <div className="w-[35%] h-full ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/736x/e7/40/3c/e7403c817e356bc217b2871fe6f17759.jpg
+                src="https://i.pinimg.com/736x/b7/32/65/b7326504d531a3ee220dad84241db64d.jpg
 "
                 alt=""
               />
@@ -125,7 +142,7 @@ const heroRef = useRef(null);
             <div className="w-[30%] h-full   ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/1200x/2b/ec/a8/2beca8663a80c5be011b0185e8dc0adf.jpg"
+                src="https://i.pinimg.com/736x/e3/0b/ba/e30bba8298bd9a37c07a604008d3363a.jpg"
                 alt=""
               />
             </div>
@@ -137,25 +154,27 @@ const heroRef = useRef(null);
               />
             </div>
           </div>
+
+
           <div className="w-full h-1/4  flex gap-1 md:h-130">
             <div className="w-[30%] h-full ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/736x/3c/f4/7a/3cf47ab75591c50ad7c3ee6d90d2b4bf.jpg"
+                src="https://i.pinimg.com/736x/da/5b/57/da5b57889a96b52a44b17fc4f823b8c0.jpg"
                 alt=""
               />
             </div>
             <div className="w-[30%] h-full  ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/1200x/cd/04/bb/cd04bb501f493b488d78eedd54649b1d.jpg"
+                src="https://i.pinimg.com/736x/80/fa/d9/80fad97c66b3c0fbc64844a4b8be3d86.jpg"
                 alt=""
               />
             </div>
             <div className="w-[40%] h-full ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/1200x/32/76/ca/3276ca49f8b252d4e1ef1167f5753110.jpg"
+                src="https://i.pinimg.com/736x/d4/8f/66/d48f66709811deb1af2ef2a1253f01e4.jpg"
                 alt=""
               />
             </div>
@@ -164,21 +183,21 @@ const heroRef = useRef(null);
             <div className="w-[30%] h-full  ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/1200x/8b/58/03/8b5803ab66f196f33cb77902a3e79a32.jpg"
+                src="https://i.pinimg.com/736x/ed/ba/c3/edbac3bd8443c4514ef8d0b3e9f7071a.jpg"
                 alt=""
               />
             </div>
             <div className="w-[30%] h-full   ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/736x/a0/da/0e/a0da0e00ac881f968d1fbd8c78bf04c9.jpg"
+                src="https://i.pinimg.com/1200x/d0/84/61/d0846181387b1cd213b849442ce52d75.jpg"
                 alt=""
               />
             </div>
             <div className="w-[40%] h-full  ">
               <img
                 className="h-full w-full object-center object-cover"
-                src="https://i.pinimg.com/1200x/97/c8/1a/97c81a39c322e62851033a3b9a66849b.jpg"
+                src="https://i.pinimg.com/1200x/e0/26/d3/e026d3ba19a5d44033f8fdec7b069a3b.jpg"
                 alt=""
               />
             </div>
@@ -186,18 +205,25 @@ const heroRef = useRef(null);
         </div>
 
         <div className=" justify-between px-3 mt-auto mb-3 flex gap-2 md:justify-center md:gap-16 ">
-          <button className=" uppercase p-3.5 border-1 border-amber-900 text-amber-900 md:text-s md:px-5 ">
-            Explore more
-          </button>
-          <button className="bg-amber-900 p-3.5 border-amber-900 border-1 text-white uppercase md:text-s md:px-5">
-            Shop now
-          </button>
+         
+            <button
+            onClick={() => navigate("/about")}
+            className=" relative group cursor-pointer bg-transparent uppercase text-xs px-8 py-4  border-amber-900  border-1 font-medium md:text-[#c9d0e0] hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition duration-300 hover:translate-y-1">
+            <span className="z-10 relative text-amber-900">About</span>
+            </button>
+
+            <button
+          onClick={() => navigate("/shop")}
+            className=" cursor-pointer bg-amber-900 uppercase text-[0.8rem] px-6 py-4 border-[#c9d0e0] border-1 text-white font-medium hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition duration-300 hover:translate-y-1">
+               <span className="z-10 relative">Shop now</span>
+            </button>
+
         </div>
       </div>
 
       {/* Section 2  Details */}
 
-      <div className=" bg-[#f2c166] flex flex-col items-center justify-center md:flex-row-reverse md:px-7">
+      <div className=" bg-[#f2c166] mx-5 flex flex-col items-center justify-center md:flex-row-reverse md:px-7">
         {/* Image */}
 
         <div className=" pt-8 px-5 h-1/2 w-full flex items-center justify-center md:h-[90vh] ">
@@ -212,26 +238,37 @@ const heroRef = useRef(null);
 
         {/* BIO */}
         <div className="bg-[#f2c166]  py-6 px-5 text-[#23444d] flex flex-col  h-1/2 w-full md:px-25 md:gap-3">
-          <h5 className="md:text-1xl ">mystrispot</h5>
+          
           <h1
-            className="py-3 text-center text-[2.4rem] tracking-wider font-bold md:text-[2.8rem]  "
+            className="py-3 text-center text-[2.4rem] tracking-wider font-bold md:tracking-normal md:text-[2.8rem]  "
             style={{ fontFamily: '"Lobster Two", sans-serif' }}
           >
-            meet the artist
+            artist's note
           </h1>
           <h5 className="md:text-1xl md:pr-[5rem]">
-            Hey! My name is Saloni and I live in Rishikesh. I am just a girl who
-            is passionate for creativity and art. This Channel is a little
+            Hey!<br/> My name is Saloni and I live in Rishikesh. I am just a girl who
+            is passionate for creativity and art. It is my solace & This  is a little
             corner of the internal where creativity, comfort and inspiration
             come together.
           </h5>
 
+          <h5 className="md:text-1xl ">mystrispot</h5>
+
           <div className=" items-start mt-20 flex gap-5 md:gap-16  ">
-            <button className=" bg-[#23444d] text-white uppercase p-3.5 border-1 border-[#23444d] md:text-xs md:px-5 md:py-4 ">
-              Learn more
+            
+
+            <button
+          onClick={() => navigate("/about")}
+            className=" cursor-pointer bg-[#23444d] uppercase text-[0.8rem] px-6 py-4  border-[#23444d] border-1 text-white font-medium hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition duration-300 hover:translate-y-1 ">
+               <span className="z-10 relative">LEarn more</span>
             </button>
-            <button className=" p-3.5 border-[#23444d] border-1 text-[#23444d] uppercase md:text-xs md:px-5 md:py-4 ">
-              For Artist
+             
+          
+            
+            <button
+            onClick={() => navigate("/Forartist")}
+            className=" relative group cursor-pointer bg-transparent uppercase text-xs px-8 py-4  border-[#23444d] border-1 text-[#23444d] font-medium  hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition duration-300 hover:translate-y-1">
+            <span className="z-10 relative text-[#23444d] border-[#23444d]">for artist</span>
             </button>
           </div>
         </div>
@@ -244,65 +281,60 @@ const heroRef = useRef(null);
       </div>
 
       {/* //Section 4 */}
-      <div className=" bg-[#f2c166] flex flex-col items-center justify-center md:flex-row-reverse md:px-7">
-        {/* Image */}
+ 
 
-        <div className=" py-8 px-5 h-1/2 w-full flex items-center justify-center md:h-[90vh] ">
-          <div className=" h-[38vh] w-full md:h-full">
-            <img
-              className="object-cover object-center h-full w-full "
-              src="https://images.unsplash.com/photo-1549499090-5fa12865059c?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Profile"
-            />
-          </div>
+        <div className="bg-[#e6e5e3]   flex flex-col items-center justify-center md:flex-row-reverse md:px-5   md:pt-18 md:pb-30" >
+          <ArtistCourses />
         </div>
 
-        {/* BIO */}
-        <div className="bg-[#f2c166]  py-6 px-5 text-[#5d613f] flex flex-col  h-1/2 w-full md:px-25 md:gap-3">
-          {/* <h5 className='md:text-1xl'
-            >mystrispot</h5> */}
-          <h1
-            className="py-3  text-[2.4rem] tracking-wider font-bold md:text-[2.8rem]"
-            style={{ fontFamily: '"Lobster Two", sans-serif' }}
-          >
-            meet the artist
-          </h1>
-          <h5 className="md:text-1xl md:pr-[5rem]">
-            Hey! My name is Saloni and I live in Rishikesh. I am just a girl who
-            is passionate for creativity and art. This Channel is a little
-            corner of the internal where creativity, comfort and inspiration
-            come together.
-          </h5>
 
-          <div className=" items-start mt-20 flex gap-5 md:gap-16  ">
-            <button className=" bg-[#5d613f] text-white uppercase p-3.5 border-1 border-[#5d613f] md:text-s md:px-6 md:py-5 ">
-              Explore Resources
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* section 5 */}
-      <div className=" bg-[#5d613f] text-white h-[45vh] flex flex-col items-center justify-center md:flex-row-reverse md:px-7">
-        <div className="h-1/2 w-full bg-red-700 px-5">
+
+
+      
+
+      {/* Footer */}
+
+      <div className=" bg-[#c8cfde] flex flex-col gap-6 mb-auto">
+
+
+        <div className=" bg-[#5d613f] pt-3 pb-10 px-4 text-white  flex flex-col items-center justify-center gap-5 md:flex-row md:px-5 md:py-20">
+        <div className="h-1/2 w-full bg-transparent ">
           <h1
             className="py-3  text-[1.4rem]  font-bold md:text-[2rem]  "
             style={{ fontFamily: '"Lobster Two", sans-serif' }}
           >
-            Subcriber to corner collector
+            Subcriber to Mystrimail
           </h1>
-          <h4 className="lowercase">
-            Our exclusive insider guide to Brooke's latest artworks, special
+          <h4 className="lowercase md:w-100">
+            Our exclusive insider guide to Mystrispot's latest artworks, special
             offers, and inspiration for your collection.
           </h4>
         </div>
 
-        <div className="h-1/2 w-full bg-blue-700"></div>
+        <div className="h-1/2 w-full flex flex-col gap-3 bg-transparent md:gap-5">
+         <input
+              type="email"
+              placeholder="Your email"
+              className="p-2 w-full bg-white  text-black flex-1 md:text-xl md:py-4 md:pl-3"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button
+              className="bg-[#d0d5e2] w-full text-black font-normal px-4 py-2 md:py-4"
+              onClick={handleSubscribe}
+            >
+              SUBSCRIBE
+            </button>
+        
+        </div>
       </div>
 
-      {/* Footer */}
+              <Footer/>
 
-      <div className="h-screen bg-[#c8cfde]"></div>
+
+      </div>
     </div>
   );
 };

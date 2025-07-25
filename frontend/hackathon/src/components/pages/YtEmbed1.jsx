@@ -6,15 +6,15 @@ const YtEmbed1 = () => {
   const videoId = 'Xv0wrjVCT_U'; 
 
   return (
-    <div className="w-full  aspect-video mx-auto px-5  overflow-hidden md:h-[80vh] md:p-15">
+    <div className="w-full aspect-video mx-5    overflow-hidden md:h-screen ">
       {!play ? (
         <div
           onClick={() => setPlay(true)}
-          className="relative w-full  h-full cursor-pointer group"
+          className="relative w-full  md:mt-10   md:py-15  h-full cursor-pointer group"
         >
           {/*  Thumbnail for yt */}
           <img
-            src={`/images/yt_thumbnail.jpg`}
+            src={`images/Orange And White Modern How To YouTube Thumbnail.png`}
             alt="Video thumbnail"
             className="w-full h-full object-cover"
           />
